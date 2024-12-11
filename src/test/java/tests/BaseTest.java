@@ -20,6 +20,11 @@ public class BaseTest {
     public void setup() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         loginPage = new LoginPage(driver);
